@@ -1,0 +1,53 @@
+/*
+
+Resizer
+created by: Michael Bumann - http://railslove.com
+questions? michael@derbumi.com
+
+The Resizer allows you to easlily resize and highlight images. It's inspired by Apple's iPhoto
+
+features:
+ - ability to resize html elements
+ - highlight elements (making elements slightly bigger)
+ - define a max and a min scale
+ - allows many instanzes on one page
+ - is built on prototype
+ - easy to use - just give it a css selector and define a starting size.
+ - easy to integrate with Script.aculo.us slider 
+
+todo:
+ - check browser compatibility
+ - directly integrate slider functionality
+ 
+usage:
+	
+	simply instanziate the resizer(s) by calling the following after dom:loaded: 
+	
+	resizer = new Resizer([SELECTOR - ELMENTS TO RESIZE],{width:[BASE WIDTH], height:[BASE HEIGHT]});
+	
+	resizer.scale(factor) - resizes all elements. the new width = old width * factor
+	resizer.scaleElement(actor) - like scale() but only scales one element
+	resizer.toggleHighlightElement(element) - toggles highlighting an element (by changing it's width and margin)
+	resizer.growBy(0.1)  - same as resizer.scale(resizer.current_factor+0.1);
+	resizer.shrinkBy(0.1) - same as resizer.scale(resizer.current_factor-0.1);
+	
+	note: you have to use inline styles for width, height, margin and padding and set the width of the image to 100% of the parent element (which we will resize)
+	
+	
+example:	
+	
+	JavaScript:
+		resizer = new Resizer(".picture",{width:120, height:120});
+		resizer = new Resizer([css selector], [options: width+height required])
+	HTML:
+		<div class="picture" style="margin:10px;padding:3px;width:120px;height:120px">
+			<img src="/path/to/picture.jpg" alt="" /
+		</div>
+	
+	CSS:
+		.picture img {
+			display:block;
+			margin:0 auto;
+			width:100%;
+		}
+*/
